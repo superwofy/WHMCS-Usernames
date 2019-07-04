@@ -22,12 +22,12 @@ if (filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)){
 			if(preg_match($rule->fetch_object()->regexpr, $_POST['username'])) {
 
 				//prepared statements ensure no SQL injection into the username field. Important since we bypass WHMCS to read from tables
-				$stmt = $mysqli->prepare("SELECT id FROM tblcustomfieldsvalues WHERE value = ?"); //Select the user id from custom fileds table.
+				$stmt = $mysqli->prepare("SELECT relid FROM tblcustomfieldsvalues WHERE value = ?"); //Select the user id from custom fileds table.
 				$stmt->bind_param("s", $_POST['username']);
 				$stmt->execute();
 
 				if ($stmt) {
-					$result = $stmt->get_result()->fetch_object()->id;
+					$result = $stmt->get_result()->fetch_object()->relid;
 					$stmt->close();
 
 					//match selected user id from usernames custom field table with email from clients table
