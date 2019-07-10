@@ -12,11 +12,15 @@ A very simple PHP script that you can direct your logins to in order to enable u
 
 3. Copy the clientDetailsValidation.php hook to WHMCS-root/includes/hooks
 
-4. Edit your template as shown below. The $LANG objects should be changed/overriden to reflect that users can now log-in with usernames.
+4. Edit your login template as shown below. The $LANG objects should be changed/overriden to reflect that users can now log-in with usernames.
 
 ![template](screenshots/login-tpl.png?raw=true "template") 
 
-5. Enjoy!
+5. Edit your clientareadetails.tpl as below if you would like users to be unable to change the username
+
+![template](screenshots/readonly.png?raw=true "template") 
+
+6. Enjoy!
 
 ![login](screenshots/login.png?raw=true "login") 
 
